@@ -20,7 +20,7 @@ const Collapsible = (props: any) => {
 
   return (
     <div className="font-roboto ">
-      {data.map((item, index) => {
+      {data.map((item: any, index: any) => {
         return (
           <Accordion
             key={index}

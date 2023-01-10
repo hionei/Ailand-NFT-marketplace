@@ -9,12 +9,12 @@ const index = (props: any) => {
         {/* left */}
         <div className="flex gap-4">
           <div className="">
-            <div class="relative flex items-center">
+            <div className="relative flex items-center">
               <SearchOutlinedIcon className="absolute left-3" />
               <input
                 id="4"
                 type="text"
-                class="bg-violet-dark border-0 text-lg w-full p-2.5 pl-12 text-white rounded-full outline-none"
+                className="bg-violet-dark border-0 text-lg w-full p-2.5 pl-12 text-white rounded-full outline-none"
                 placeholder="Search"
               />
             </div>
@@ -47,12 +47,12 @@ const index = (props: any) => {
             <FavoriteIcon />
           </div>
           <div className="w-full">
-            <div class="relative flex items-center">
+            <div className="relative flex items-center">
               <SearchOutlinedIcon className="absolute left-3" />
               <input
                 id="4"
                 type="text"
-                class="bg-violet-dark border-0 text-lg w-full p-2.5 pl-12 text-white rounded-full outline-none"
+                className="bg-violet-dark border-0 text-lg w-full p-2.5 pl-12 text-white rounded-full outline-none"
                 placeholder="Search"
               />
             </div>
