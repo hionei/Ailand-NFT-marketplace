@@ -27,14 +27,14 @@ const index = (props: any) => {
         </div>
         {/* right */}
         <div>
-          <CartBtn onClick={() => props.cartOpenHandler((o) => !o)} />
+          <CartBtn onClick={() => props.cartOpenHandler((o: any) => !o)} />
         </div>
       </div>
 
       <div className="w-full text-white  px-6 block md:hidden">
         <CartBtn
           mobile={true}
-          onClick={() => props.cartOpenHandler((o) => !o)}
+          onClick={() => props.cartOpenHandler((o: any) => !o)}
         />
 
         <div className="flex items-center justify-between my-4 px-[20%]">
