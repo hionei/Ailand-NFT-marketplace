@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  @apply font-roboto;
+}
+
+a {
+  @apply text-white no-underline;
+}
+ul {
+  @apply list-none;
+}
+.MuiDrawer-paper {
+  background: none;
+  @apply py-4;
+}
+
+.cart-gradient {
+  /* global 94%+ browsers support */
+  background: #361968
+    linear-gradient(120deg, #fc0ff4a6 0%, #361968 21%, #0f0c1f 100%);
+}
