@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import ItemCard from '../Trade/ItemCard'
+import useStoreNfts from '../../hooks/useStoreNfts'
+import { StoreNfts } from '../../types/types'
 
 const index = () => {
+  const { nfts, loading } = useStoreNfts()
+  const [selectedStore, setSelectedStore] = useState('')
+
+  const filteredThings = nfts.filter(
+    (nft: StoreNfts) => selectedStore === '' || nft.storeId === selectedStore
+  )
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -24,14 +33,9 @@ const index = () => {
 
   return (
     <Carousel responsive={responsive} ssr={true} itemClass="p-2">
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
-      <ItemCard />
+      {filteredThings.map((nft: StoreNfts) => (
+        <ItemCard key={'carousel' + nft.metadataId} item={nft} />
+      ))}
     </Carousel>
   )
 }

@@ -45,6 +45,13 @@ const Cart = (props: any) => {
 
   useEffect(() => {
     setShoppingNFTs(storeShoppingNFTs)
+    storeShoppingNFTs.map((nft: StoreNfts) => {
+      const metaData = metaDataList.filter((metaData: TokenListData) => {
+        if (!metaData.tokenData) return false
+        console.log(metaData)
+        return metaData.tokenData.tokenData[0].metadata_id === nft.metadataId
+      })
+    })
   }, [storeShoppingNFTs])
 
   const multipleBuy = async (params: BuyArgs[]) => {
@@ -90,6 +97,7 @@ const Cart = (props: any) => {
     storeShoppingNFTs.map((nft: StoreNfts) => {
       const metaData = metaDataList.filter((metaData: TokenListData) => {
         if (!metaData.tokenData) return false
+        console.log(metaData)
         return metaData.tokenData.tokenData[0].metadata_id === nft.metadataId
       })
 

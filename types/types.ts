@@ -12,32 +12,42 @@ export enum TransactionEnum {
   WITHDRAW_OFFER = 'withdraw-offer',
 }
 
-export interface TokenDetails {price: number, tokenId: string}
+export interface TokenDetails {
+  price: number
+  tokenId: string
+}
 
-export interface TokenDetailsVariant {price: number, token: { id: string } }
+export interface TokenDetailsVariant {
+  price: number
+  token: { id: string }
+}
 
 export interface TokenDataQuery {
   tokenData: TokenData[]
 }
 export interface TokenData {
-  listings: TokenDetails[] | TokenDetailsVariant[],
-  media: string,
-  metadata_id: string,
-  title: string,
-  nft_contract_id: string,
-  token_id:string,
+  listings: TokenDetails[] | TokenDetailsVariant[]
+  media: string
+  metadata_id: string
+  title: string
+  nft_contract_id: string
+  token_id: string
   listings_aggregate: { aggregate: { count: number } }
 }
 
+interface TokenDataObj {
+  tokenData: TokenData[]
+}
+
 export interface TokenListData {
-  price: number,
-  prices: TokenDetails[],
-  amountAvailable: number,
-  tokensTotal: number,
-  tokenId:string,
-  tokenList: TokenDetailsVariant[],
-  tokenData: TokenData,
-  isTokenListLoading: boolean,
+  price: number
+  prices: TokenDetails[]
+  amountAvailable: number
+  tokensTotal: number
+  tokenId: string
+  tokenList: TokenDetailsVariant[]
+  tokenData: TokenDataObj
+  isTokenListLoading: boolean
   marketId?: string
   tokenKey?: string
   nftContractId?: string
@@ -50,20 +60,20 @@ export interface SelectedNft {
 export type Store = {
   id: string
   name: string
-};
+}
 
 export type StoreNfts = {
   base_uri: any
-  createdAt: string;
-  listed: boolean;
-  media: string;
-  storeId: string;
-  metadataId: string;
-  title: string;
-};
+  createdAt: string
+  listed: boolean
+  media: string
+  storeId: string
+  metadataId: string
+  title: string
+}
 
 export interface PriceEl {
-  price: number;
+  price: number
 }
 
 export interface BuyModalData {
