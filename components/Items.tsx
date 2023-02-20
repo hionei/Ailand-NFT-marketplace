@@ -7,7 +7,6 @@ import {
   EIconName,
 } from 'mintbase-ui';
 import { Item, LoadingItem } from './Item';
-
 import { useStores } from '../hooks/useStores';
 import useStoreNfts from '../hooks/useStoreNfts';
 import { Store, StoreNfts } from '../types/types';

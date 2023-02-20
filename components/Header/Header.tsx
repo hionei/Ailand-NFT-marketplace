@@ -3,13 +3,41 @@ import React from 'react'
 import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined'
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined'
 import Link from 'next/link'
-
+import { useWallet } from '@mintbase-js/react'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
+import { Chain, Network } from 'mintbase'
+import { DEFAULT_NETWORK } from '../../config/constants'
 
 const Header = (props: any) => {
   const [currency, setCurrency] = React.useState('USD')
+  const mjsKey = process.env.NEXT_PUBLIC_DEVELOPER_KEY || ''
+  const network =
+    (process.env.NEXT_PUBLIC_NETWORK as Network) || DEFAULT_NETWORK
+
+  const {
+    connect,
+    disconnect,
+    activeAccountId,
+    selector,
+    signMessage,
+    isConnected,
+    errorMessage,
+  } = useWallet()
+
+  if (errorMessage) {
+    return (
+      <div>
+        <p>Major bummer! Could not connect to NEAR {errorMessage}</p>
+        <button onClick={connect}>Try Again</button>
+      </div>
+    )
+  }
+
+  const buttonLabel = isConnected ? `Sign Out ${activeAccountId}` : ' Sign in'
+
+  const buttonAction = isConnected ? disconnect : connect
 
   return (
     <>
@@ -66,6 +94,7 @@ const Header = (props: any) => {
           <Button
             type="button"
             variant="contained"
+            onClick={connect}
             sx={{
               backgroundColor: '#AB7BFF',
               color: '#441F84',
@@ -75,7 +104,7 @@ const Header = (props: any) => {
               padding: '8px 25px ',
             }}
           >
-            Sign in
+            {buttonLabel}
           </Button>
         </div>
       </div>

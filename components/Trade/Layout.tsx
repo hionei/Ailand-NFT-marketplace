@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import SideNav from '../Navbar/SideNav'
@@ -6,12 +6,24 @@ import FilterCard from './Filter/FilterCard'
 import ItemCard from './ItemCard'
 import TradeHeader from './Header'
 import Cart from '../Cart/index'
+import useStoreNfts from '../../hooks/useStoreNfts'
+import { useStores } from '../../hooks/useStores'
+import { Store, StoreNfts } from '../../types/types'
 
 import Drawer from '@mui/material/Drawer'
 
 const Layout = () => {
   const [filterOpen, setFilterOpen] = React.useState(false)
   const [cartOpen, setCartOpen] = React.useState(false)
+  const { nfts, loading } = useStoreNfts()
+
+  const { stores } = useStores()
+  const [selectedStore, setSelectedStore] = useState('')
+
+  const filteredThings = nfts.filter(
+    (nft: StoreNfts) => selectedStore === '' || nft.storeId === selectedStore
+  )
+
   return (
     <div className="overflow-x-hidden relative">
       <Header />
@@ -25,22 +37,9 @@ const Layout = () => {
           <div className="w-full  mt-4">
             <TradeHeader cartOpenHandler={setCartOpen} />
             <div className="grid grid-cols-3 sm:flex gap-4 py-2 px-4 flex-wrap items-center justify-center lg:justify-start ">
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
+              {filteredThings.map((nft: StoreNfts) => (
+                <ItemCard key={'layout' + nft.metadataId} item={nft} />
+              ))}
             </div>
           </div>
         </div>

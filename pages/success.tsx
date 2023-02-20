@@ -1,8 +1,15 @@
-import { EIconName, MbIcon, MbText } from 'mintbase-ui';
-import { BackHomeButton } from '../components/BackHomeButton';
-import { Container } from '../components/Container';
+import { EIconName, MbIcon, MbText } from 'mintbase-ui'
+import { useEffect } from 'react'
+import { BackHomeButton } from '../components/BackHomeButton'
+import { Container } from '../components/Container'
+import { useDispatch } from 'react-redux'
+import { setShoppingCarts } from '../store/slice/shoppingCartSlice'
 
 export function SuccessPage(): JSX.Element {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(setShoppingCarts([]))
+  }, [])
   return (
     <Container>
       <div className="my-52 w-full flex flex-col items-center justify-center gap-12">
@@ -23,7 +30,7 @@ export function SuccessPage(): JSX.Element {
         <BackHomeButton />
       </div>
     </Container>
-  );
+  )
 }
 
-export default SuccessPage;
+export default SuccessPage
