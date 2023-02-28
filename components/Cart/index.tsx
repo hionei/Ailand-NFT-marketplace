@@ -36,11 +36,8 @@ const Cart = (props: any) => {
     (state: RootState) => state.metaDataSlicer.metaDataList
   )
 
-  const router = useRouter()
-
   const { nearPrice } = useNearPrice()
 
-  // const { selector } = useWallet()
   const { selector } = useWallet()
 
   useEffect(() => {

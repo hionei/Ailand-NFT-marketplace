@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { StoreNfts } from '../../types/types'
 import { useTokenListData } from '../../hooks/useTokenListData'
 import { useNearPrice } from '../../hooks/useNearPrice'
@@ -8,7 +8,7 @@ import { addShoppingCart } from '../../store/slice/shoppingCartSlice'
 import { addMetaData } from '../../store/slice/metaDataSlice'
 import { RootState } from '../../store'
 
-const ItemCard = ({ item }: { item: StoreNfts }): JSX.Element => {
+function ItemCard({ item }: { item: StoreNfts }): JSX.Element {
   const { metadataId } = item
   const [amountLeft, setAmountLeft] = useState(0)
   const curMetaData = useTokenListData({ metadataId })
@@ -35,7 +35,6 @@ const ItemCard = ({ item }: { item: StoreNfts }): JSX.Element => {
         count[JSON.stringify(nft)] = 1
       }
     })
-    console.log(count[JSON.stringify(item)], curMetaData.amountAvailable)
 
     if (count[JSON.stringify(item)] >= curMetaData.amountAvailable) {
       toast.warn('No NFTs available to buy')
@@ -76,4 +75,4 @@ const ItemCard = ({ item }: { item: StoreNfts }): JSX.Element => {
   )
 }
 
-export default ItemCard
+export default memo(ItemCard)

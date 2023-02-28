@@ -1,8 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CartBtn from './CartBtn'
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 const index = (props: any) => {
+  const [sort, setSort] = useState({ price: false, rarity: false, date: false })
+
+  const onSort = (eve: any, type: number) => {
+    switch (type) {
+      case 0:
+        setSort({ price: false, rarity: false, date: false })
+        props.onSort(0, false)
+        break
+      case 1:
+        setSort((prev) => {
+          props.onSort(1, !prev.price)
+          return { rarity: false, date: false, price: !prev.price }
+        })
+
+        break
+      case 2:
+        setSort((prev) => {
+          return { price: false, date: false, rarity: !prev.rarity }
+        })
+        break
+      case 3:
+        setSort((prev) => {
+          props.onSort(2, !prev.date)
+          return { price: false, rarity: false, date: !prev.date }
+        })
+        break
+      default:
+        break
+    }
+  }
   return (
     <>
       <div className="w-full text-white md:flex justify-between items-center px-6 hidden ">
@@ -19,10 +49,41 @@ const index = (props: any) => {
               />
             </div>
           </div>
-          <div className="flex items-center justify-between gap-6">
-            <p>Default</p>
-            <p>Discount</p>
-            <p>Price</p>
+          <div className="flex items-center justify-between gap-10">
+            <button onClick={(eve) => onSort(eve, 0)}>Default</button>
+            <button
+              className="flex items-center justify-center gap-1"
+              onClick={(eve) => onSort(eve, 1)}
+            >
+              Price
+              {!sort.price ? (
+                <img src="/icons/sort.svg" />
+              ) : (
+                <img src="/icons/sort_revert.svg" />
+              )}
+            </button>
+            {/* <button
+              className="flex items-center justify-center gap-1"
+              onClick={(eve) => onSort(eve, 2)}
+            >
+              Rarity
+              {!sort.rarity ? (
+                <img src="/icons/sort.svg" />
+              ) : (
+                <img src="/icons/sort_revert.svg" />
+              )}
+            </button> */}
+            <button
+              className="flex items-center justify-center gap-1"
+              onClick={(eve) => onSort(eve, 3)}
+            >
+              Date
+              {!sort.date ? (
+                <img src="/icons/sort.svg" />
+              ) : (
+                <img src="/icons/sort_revert.svg" />
+              )}
+            </button>
           </div>
         </div>
         {/* right */}
