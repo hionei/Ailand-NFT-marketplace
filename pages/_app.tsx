@@ -11,6 +11,8 @@ import { DEFAULT_NETWORK } from '../config/constants'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import '@near-wallet-selector/modal-ui/styles.css'
+import '../public/assets/styles/Calendar.css'
+import '../public/assets/styles/DatePicker.css'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const mjsKey = process.env.NEXT_PUBLIC_DEVELOPER_KEY || ''

@@ -12,6 +12,7 @@ import { Store, StoreNfts, TokenListData } from '../../types/types'
 import Drawer from '@mui/material/Drawer'
 import { RootState } from '../../store'
 import { useSelector } from 'react-redux'
+import { useClickOutside } from '@mantine/hooks'
 
 type SORT = {
   price: boolean
@@ -22,6 +23,8 @@ type SORT = {
 const Layout = () => {
   const [filterOpen, setFilterOpen] = React.useState(false)
   const [cartOpen, setCartOpen] = React.useState(false)
+  const ref = useClickOutside(() => setCartOpen(false))
+
   const { nfts, loading } = useStoreNfts()
   const { stores } = useStores()
   const [selectedStore, setSelectedStore] = useState('')
@@ -138,7 +141,10 @@ const Layout = () => {
       </Drawer>
 
       {cartOpen && (
-        <div className="fixed right-0 md:right-10 z-50 top-0 md:top-[15%] w-full h-full md:w-[40%] min-w-[25rem] max-w-screen-sm md:max-w-md  overflow-hidden">
+        <div
+          className="fixed right-0 md:right-10 z-50 top-0 md:top-[15%] w-full h-full md:w-[40%] min-w-[25rem] max-w-screen-sm md:max-w-md  overflow-hidden"
+          ref={ref}
+        >
           <Cart cartCloseHandler={setCartOpen} />
         </div>
       )}

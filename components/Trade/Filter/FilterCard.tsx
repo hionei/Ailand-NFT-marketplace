@@ -1,14 +1,70 @@
 import Button from '@mui/material/Button'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Collapsible from './Collapsible'
 import DummyItem from './DummyItem'
+import Price from './FilterInner/Price'
+import Rarity from './FilterInner/Rarity'
+import Date from './FilterInner/Date'
+import SavedFilters from './FilterInner/SavedFilters'
 
 const FilterCard = (props: any) => {
+  const [filters, setFilters] = useState([])
+  const [rarity, setRarity] = useState({ min: 0, max: 0 })
+  const [price, setPrice] = useState({ min: 0, max: 0 })
+  const [date, setDate] = useState({ min: null, max: null })
+
+  useEffect(() => {
+    console.log(filters)
+  }, [filters])
+
+  const setFiltersData = () => {
+    var applied = []
+    if (rarity.min > 0 || rarity.max > 0) {
+      applied.push({ title: 'rarity', values: rarity })
+    }
+    if (price.min > 0 || price.max > 0) {
+      applied.push({ title: 'price', values: price })
+    }
+    if (date.min !== null || date.max !== null) {
+      applied.push({ title: 'date', values: date })
+    }
+
+    if (applied.length > 0) setFilters(applied)
+  }
+
+  const resetFilters = () => {
+    setFilters([])
+    setRarity({ min: 0, max: 0 })
+    setPrice({ min: 0, max: 0 })
+    setDate({ min: null, max: null })
+  }
+
+  const deleteFilter = (key: String) => {
+    // if (key === "rarity")
+
+    setFilters((prev: any) => {
+      const data = [...prev]
+      return data.filter((item) => item.title !== key)
+    })
+  }
+
   const data1 = [
-    { title: 'Saved Filters', count: '0', children: <DummyItem /> },
-    { title: 'Rarity', children: <DummyItem /> },
-    { title: 'Price', children: <DummyItem /> },
-    { title: 'Date', children: <DummyItem /> },
+    {
+      title: 'Saved Filters',
+      count: filters.length.toString(),
+      children: (
+        <SavedFilters filters={filters} clearIndividual={deleteFilter} />
+      ),
+    },
+    {
+      title: 'Rarity',
+      children: <Rarity value={rarity} setValues={setRarity} />,
+    },
+    {
+      title: 'Price',
+      children: <Price value={price} setValues={setPrice} />,
+    },
+    { title: 'Date', children: <Date value={date} setValues={setDate} /> },
   ]
 
   return (
@@ -33,6 +89,7 @@ const FilterCard = (props: any) => {
             textTransform: 'capitalize',
             color: '#D1D1D1',
           }}
+          onClick={resetFilters}
         >
           Reset
         </Button>
@@ -45,6 +102,7 @@ const FilterCard = (props: any) => {
             bgcolor: '#8E52F5',
             textTransform: 'capitalize',
           }}
+          onClick={setFiltersData}
         >
           Save
         </Button>
