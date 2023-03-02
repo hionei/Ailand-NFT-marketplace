@@ -128,10 +128,10 @@ const Cart = (props: any) => {
       </div>
 
       <div className=" flex flex-col gap-3">
-        <div className="flex justify-between bg-[#181330] rounded-lg p-4 shadow-lg">
+        <div className="flex justify-between bg-[#181330] rounded-lg p-4 shadow-[rgba(0,0,0,_0.24)_0px_6px_4px_0px] ">
           <span>You offer on: $ 0.00</span>
         </div>
-        <div className="flex justify-between bg-[#181330] rounded-lg p-4 shadow-lg">
+        <div className="flex justify-between bg-[#181330] rounded-lg p-4 shadow-[rgba(0,0,0,_0.24)_0px_6px_4px_0px] ">
           <span>You get on: $ 0.00 </span>
         </div>
         {/* <Accordion title="You offer on: $ 0.00" />
@@ -143,7 +143,7 @@ const Cart = (props: any) => {
         return (
           <div
             key={'cart' + index}
-            className="flex justify-between bg-[#181330] my-2 rounded-lg p-4 shadow-lg"
+            className="flex justify-between bg-[#181330] my-2 rounded-lg p-4 shadow-[rgba(0,0,0,_0.24)_0px_6px_4px_0px] "
           >
             <div className="flex gap-2">
               <img src={nft.media} alt="" className="w-[84px] h-[83px]" />
@@ -163,7 +163,7 @@ const Cart = (props: any) => {
       <div>
         <button
           onClick={onBatchBuy}
-          className="w-full flex flex-col items-center justify-center p-2 rounded-full bg-[#441F84] text-white border-0 mt-5 leading-5"
+          className="w-full flex flex-col items-center justify-center p-2 rounded-full bg-[#441F84] text-white border-0 mt-5 leading-5 shadow-[rgba(0,0,0,_0.24)_0px_6px_6px_0px] "
         >
           BUY
           <span className="text-[#8E52F5]">Balance ≈ 0.00 $</span>

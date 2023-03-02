@@ -25,7 +25,11 @@ ul {
 }
 
 .cart-gradient {
-  /* global 94%+ browsers support */
   background: #361968
-    linear-gradient(120deg, #fc0ff4a6 0%, #361968 21%, #0f0c1f 100%);
+    linear-gradient(120deg, #83147f 0%, #361968 21%, #0f0c1f 100%);
+}
+
+.trade-gradient {
+  background: #361968
+    linear-gradient(220deg, #83147f 0%, #361968 21%, #0f0c1f 100%);
 }

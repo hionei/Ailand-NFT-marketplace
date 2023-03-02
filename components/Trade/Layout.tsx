@@ -98,7 +98,7 @@ const Layout = () => {
       <Header />
 
       <div className="min-h-[80vh]  flex">
-        <div className="flex bg-[#1d1435] w-full">
+        <div className="flex bg-[#1d1435] trade-gradient w-full">
           <SideNav className="h-[100%] hidden lg:block pt-4" heartIcon={true} />
           <div className="px-4 py-2 hidden lg:block">
             <FilterCard className="max-w-[300px] shadow-xl mt-4" />

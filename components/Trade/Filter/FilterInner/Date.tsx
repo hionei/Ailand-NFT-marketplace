@@ -18,6 +18,7 @@ const DateFilter = ({ value, setValues }: any) => {
           className="text-black bg-[#441F84] rounded-full text-center"
           format="dd/M/y"
           defaultValue={new Date()}
+          calendarClassName="rounded-xl mt-4"
         />
       </div>
       <RemoveIcon className="text-[#441F84]" />
@@ -35,6 +36,7 @@ const DateFilter = ({ value, setValues }: any) => {
           clearIcon={null}
           className="text-black bg-[#441F84] rounded-full text-center"
           format="dd/M/y"
+          calendarClassName="rounded-xl mt-4"
         />
       </div>
     </div>
