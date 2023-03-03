@@ -62,7 +62,7 @@ const index = (props: any) => {
                 <img src="/icons/sort_revert.svg" />
               )}
             </button>
-            <button
+            {/* <button
               className="flex items-center justify-center gap-1"
               onClick={(eve) => onSort(eve, 2)}
             >
@@ -72,7 +72,7 @@ const index = (props: any) => {
               ) : (
                 <img src="/icons/sort_revert.svg" />
               )}
-            </button>
+            </button> */}
             <button
               className="flex items-center justify-center gap-1"
               onClick={(eve) => onSort(eve, 3)}
