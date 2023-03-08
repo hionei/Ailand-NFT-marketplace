@@ -23,7 +23,7 @@ const Collapsible = (props: any) => {
       {data.map((item: any, index: any) => {
         return (
           <Accordion
-            key={index}
+            key={`filter-accordion-${index}`}
             elevation={0}
             expanded={expanded === `panel${index}`}
             onChange={handleChange(`panel${index}`)}

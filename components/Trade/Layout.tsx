@@ -13,6 +13,7 @@ import Drawer from '@mui/material/Drawer'
 import { RootState } from '../../store'
 import { useSelector } from 'react-redux'
 import { useClickOutside } from '@mantine/hooks'
+import { useNearPrice } from '../../hooks/useNearPrice'
 
 type SORT = {
   price: boolean
@@ -33,6 +34,8 @@ const Layout = () => {
     (state: RootState) => state.metaDataSlicer.metaDataList
   )
 
+  const { nearPrice } = useNearPrice()
+
   useEffect(() => {
     if (nfts.length !== 0) {
       setFilteredThings(
@@ -43,6 +46,59 @@ const Layout = () => {
       )
     }
   }, [nfts])
+
+  const onFilter = (filterSettings: any) => {
+    console.log(filterSettings)
+    const filteredNfts = nfts.filter(
+      (nft: StoreNfts) => selectedStore === '' || nft.storeId === selectedStore
+    )
+
+    let newArr = filteredNfts
+
+    for (let filterSetting of filterSettings) {
+      if (filterSetting.title == 'price') {
+        const minPrice = filterSetting.values.min
+        const maxPrice = filterSetting.values.max
+
+        newArr = newArr.filter((filteredThing) => {
+          const metaData = metaDataList.filter((metadata: TokenListData) => {
+            if (!metadata.tokenData) return false
+            return (
+              metadata.tokenData.tokenData[0].metadata_id ===
+              filteredThing.metadataId
+            )
+          })
+
+          const curPrice = Number(
+            parseFloat(nearPrice) * metaData[0].price
+          ).toFixed(2)
+
+          if (maxPrice > curPrice && curPrice > minPrice) return true
+          else return false
+        })
+      }
+
+      if (filterSetting.title == 'date') {
+        const minDate = filterSetting.values.min
+        const maxDate = filterSetting.values.max
+
+        newArr = newArr.filter((filteredThing) => {
+          const curDate = filteredThing.createdAt
+          const curDateTime = new Date(curDate)
+          const minDateTime = new Date(minDate)
+          const maxDateTime = new Date(maxDate)
+
+          console.log(curDateTime, minDateTime, maxDateTime)
+
+          if (curDateTime > minDateTime && maxDateTime > curDateTime)
+            return true
+          else return false
+        })
+      }
+    }
+
+    setFilteredThings(newArr)
+  }
 
   const onSort = (type: number, status: boolean) => {
     if (type === 0) {
@@ -101,7 +157,10 @@ const Layout = () => {
         <div className="flex bg-[#1d1435] trade-gradient w-full">
           <SideNav className="h-[100%] hidden lg:block pt-4" heartIcon={true} />
           <div className="px-4 py-2 hidden lg:block">
-            <FilterCard className="max-w-[300px] shadow-xl mt-4" />
+            <FilterCard
+              className="max-w-[300px] shadow-xl mt-4"
+              onFilter={onFilter}
+            />
           </div>
           <div className="w-full  mt-4">
             <TradeHeader cartOpenHandler={setCartOpen} onSort={onSort} />
@@ -137,6 +196,7 @@ const Layout = () => {
         <FilterCard
           className=" shadow-xl  overflow-auto mx-10 my-5"
           handleClose={setFilterOpen}
+          onFilter={onFilter}
         />
       </Drawer>
 

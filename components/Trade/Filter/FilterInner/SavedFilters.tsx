@@ -12,9 +12,12 @@ const SavedFilters = ({ filters, clearIndividual }: any) => {
         </div>
       ) : (
         <>
-          {filters.map((item: any) => {
+          {filters.map((item: any, index: number) => {
             return (
-              <div className="flex justify-between items-center capitalize text-lg my-3">
+              <div
+                className="flex justify-between items-center capitalize text-lg my-3"
+                key={`SavedFilters${index}`}
+              >
                 <p>{item.title}</p>
                 <DeleteOutlineIcon
                   className="cursor-pointer"

@@ -14,8 +14,20 @@ const FilterCard = (props: any) => {
   const [date, setDate] = useState({ min: null, max: null })
 
   useEffect(() => {
-    console.log(filters)
+    props.onFilter(filters)
   }, [filters])
+
+  useEffect(() => {
+    var applied = []
+    if (price.min > 0 || price.max > 0) {
+      applied.push({ title: 'price', values: price })
+    }
+    if (date.min !== null || date.max !== null) {
+      applied.push({ title: 'date', values: date })
+    }
+
+    if (applied.length > 0) setFilters(applied)
+  }, [price, date])
 
   const setFiltersData = () => {
     var applied = []
@@ -40,8 +52,6 @@ const FilterCard = (props: any) => {
   }
 
   const deleteFilter = (key: String) => {
-    // if (key === "rarity")
-
     setFilters((prev: any) => {
       const data = [...prev]
       return data.filter((item) => item.title !== key)
@@ -56,10 +66,10 @@ const FilterCard = (props: any) => {
         <SavedFilters filters={filters} clearIndividual={deleteFilter} />
       ),
     },
-    {
-      title: 'Rarity',
-      children: <Rarity value={rarity} setValues={setRarity} />,
-    },
+    // {
+    //   title: 'Rarity',
+    //   children: <Rarity value={rarity} setValues={setRarity} />,
+    // },
     {
       title: 'Price',
       children: <Price value={price} setValues={setPrice} />,
