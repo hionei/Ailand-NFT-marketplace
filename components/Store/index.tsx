@@ -6,15 +6,16 @@ import Date from './DetailCards/Date'
 import Provenance from './DetailCards/Provenance'
 import Splits from './DetailCards/Splits'
 import Carousel from './Carousel'
+import { StoreNfts } from '../../types/types'
 
-const index = () => {
+const index = ({ itemData }: { itemData: StoreNfts }) => {
   return (
     <div className="bg-[#181330] min-h-screen">
       <div className="max-w-[1100px] mx-auto p-4">
         <div className=" grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="rounded-3xl  col-span-1 flex justify-center">
             <img
-              src="/images/store-image.png"
+              src={itemData.media}
               alt=""
               className="w-full sm:w-full max-h-none sm:max-h-[35rem] mx-auto"
             />

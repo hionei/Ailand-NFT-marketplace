@@ -17,6 +17,7 @@
     "@apollo/client": "^3.6.9",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@headlessui/react": "^1.7.14",
     "@mantine/hooks": "^6.0.0",
     "@mintbase-js/auth": "^0.1.0-beta.9",
     "@mintbase-js/react": "^0.1.0-beta.9",

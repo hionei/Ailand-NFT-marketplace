@@ -8,7 +8,13 @@ import { addShoppingCart } from '../../store/slice/shoppingCartSlice'
 import { addMetaData } from '../../store/slice/metaDataSlice'
 import { RootState } from '../../store'
 
-function ItemCard({ item }: { item: StoreNfts }): JSX.Element {
+function ItemCard({
+  item,
+  onItemClicked,
+}: {
+  item: StoreNfts
+  onItemClicked?: (item: StoreNfts) => void
+}): JSX.Element {
   const { metadataId } = item
   const [amountLeft, setAmountLeft] = useState(0)
   const curMetaData = useTokenListData({ metadataId })
@@ -44,6 +50,10 @@ function ItemCard({ item }: { item: StoreNfts }): JSX.Element {
     dispatch(addShoppingCart(item))
   }
 
+  const itemClicked = () => {
+    onItemClicked(item)
+  }
+
   return (
     <div
       className="max-w-[200px] overflow-hidden  flex items-center flex-col font-roboto rounded-[10px] w-[154px] min-h-[168px]"
@@ -52,7 +62,12 @@ function ItemCard({ item }: { item: StoreNfts }): JSX.Element {
         boxShadow: '0px 4px 5px rgba(0, 0, 0, 0.5)',
       }}
     >
-      <img src={item.media} alt="" className="w-full h-[103px]" />
+      <img
+        src={item.media}
+        alt=""
+        className="w-full h-[103px]"
+        onClick={itemClicked}
+      />
       <p className="text-md font-roboto text-white">
         $ {Number(parseFloat(nearPrice) * curMetaData.price).toFixed(2)}
       </p>

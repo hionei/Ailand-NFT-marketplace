@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import SideNav from '../Navbar/SideNav'
@@ -14,6 +14,7 @@ import { RootState } from '../../store'
 import { useSelector } from 'react-redux'
 import { useClickOutside } from '@mantine/hooks'
 import { useNearPrice } from '../../hooks/useNearPrice'
+import Modal from '../Modal'
 
 type SORT = {
   price: boolean
@@ -24,12 +25,14 @@ type SORT = {
 const Layout = () => {
   const [filterOpen, setFilterOpen] = React.useState(false)
   const [cartOpen, setCartOpen] = React.useState(false)
+  const [productModalOpen, setProductModalOpen] = React.useState(false)
   const ref = useClickOutside(() => setCartOpen(false))
 
   const { nfts, loading } = useStoreNfts()
   const { stores } = useStores()
   const [selectedStore, setSelectedStore] = useState('')
   const [filteredThings, setFilteredThings] = useState([])
+  const [itemData, setItemData] = useState<StoreNfts>(null)
   const metaDataList = useSelector(
     (state: RootState) => state.metaDataSlicer.metaDataList
   )
@@ -87,8 +90,6 @@ const Layout = () => {
           const curDateTime = new Date(curDate)
           const minDateTime = new Date(minDate)
           const maxDateTime = new Date(maxDate)
-
-          console.log(curDateTime, minDateTime, maxDateTime)
 
           if (curDateTime > minDateTime && maxDateTime > curDateTime)
             return true
@@ -149,6 +150,11 @@ const Layout = () => {
     }
   }
 
+  const itemClicked = useCallback((item: StoreNfts) => {
+    setProductModalOpen(true)
+    setItemData(item)
+  }, [])
+
   return (
     <div className="overflow-x-hidden relative">
       <Header />
@@ -166,7 +172,11 @@ const Layout = () => {
             <TradeHeader cartOpenHandler={setCartOpen} onSort={onSort} />
             <div className="grid grid-cols-3 sm:flex gap-4 py-2 px-4 flex-wrap items-center justify-center lg:justify-start ">
               {filteredThings.map((nft: StoreNfts, index: number) => (
-                <ItemCard key={`${nft.metadataId}-${index}`} item={nft} />
+                <ItemCard
+                  key={`${nft.metadataId}-${index}`}
+                  item={nft}
+                  onItemClicked={itemClicked}
+                />
               ))}
             </div>
           </div>
@@ -208,6 +218,12 @@ const Layout = () => {
           <Cart cartCloseHandler={setCartOpen} />
         </div>
       )}
+
+      <Modal
+        open={productModalOpen}
+        setProductModalOpen={setProductModalOpen}
+        itemData={itemData}
+      />
     </div>
   )
 }
