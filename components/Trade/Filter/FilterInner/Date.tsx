@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import DatePicker from 'react-date-picker/dist/entry.nostyle'
+import DatePicker from 'react-date-picker'
 
 import RemoveIcon from '@mui/icons-material/Remove'
 
@@ -17,7 +17,7 @@ const DateFilter = ({ value, setValues }: any) => {
           clearIcon={null}
           className="text-black bg-[#441F84] rounded-full text-center"
           format="dd/M/y"
-          defaultValue={new Date()}
+          // defaultValue={new Date()}
           calendarClassName="rounded-xl mt-4"
         />
       </div>
@@ -31,7 +31,7 @@ const DateFilter = ({ value, setValues }: any) => {
             })
           }
           value={value.max}
-          defaultValue={new Date()}
+          // defaultValue={new Date()}
           minDate={value.min}
           clearIcon={null}
           className="text-black bg-[#441F84] rounded-full text-center"

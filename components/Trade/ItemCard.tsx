@@ -47,6 +47,8 @@ function ItemCard({
       return
     }
 
+    toast.success('Product has been added to cart!')
+
     dispatch(addShoppingCart(item))
   }
 

@@ -94,7 +94,7 @@ const Header = (props: any) => {
           <Button
             type="button"
             variant="contained"
-            onClick={connect}
+            onClick={isConnected ? disconnect : connect}
             sx={{
               backgroundColor: '#AB7BFF',
               color: '#441F84',
