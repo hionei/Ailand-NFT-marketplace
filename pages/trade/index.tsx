@@ -7,7 +7,7 @@ import ItemCard from '../../components/Trade/ItemCard'
 import Layout from '../../components/Trade/Layout'
 function index(): JSX.Element {
   return (
-    <div className=" mx-auto">
+    <div className="mx-auto">
       {/* <ItemCard /> */}
       {/* <FilterCard /> */}
       {/* <Header />
