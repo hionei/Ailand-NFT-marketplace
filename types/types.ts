@@ -32,6 +32,7 @@ export interface TokenData {
   title: string
   nft_contract_id: string
   token_id: string
+  animationUrl?: string
   listings_aggregate: { aggregate: { count: number } }
 }
 

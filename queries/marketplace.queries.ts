@@ -1,28 +1,34 @@
-import { gql } from '@apollo/client';
+import { gql } from '@apollo/client'
 import {
-  METADATA_FRAGMENT, MINTERS_FRAGMENT, ROLLING_AUCTION_COUNT_FRAGMENT, TOKEN_COUNT_FRAGMENT, LISTINGS_FRAGMENT, SIMPLE_SALE_COUNT_FRAGMENT,
-} from './fragments';
+  METADATA_FRAGMENT,
+  MINTERS_FRAGMENT,
+  ROLLING_AUCTION_COUNT_FRAGMENT,
+  TOKEN_COUNT_FRAGMENT,
+  LISTINGS_FRAGMENT,
+  SIMPLE_SALE_COUNT_FRAGMENT,
+} from './fragments'
 
 export const v2MarketPlaceGetToken = gql`
-query v2MarketPlaceGetToken($id: String) {
- tokenData: mb_views_nft_tokens(where: {metadata_id: {_eq: $id}}) {
-    media
-    title
-    metadata_id
-    nft_contract_id
-    token_id
-    listings {
-      price
+  query v2MarketPlaceGetToken($id: String) {
+    tokenData: mb_views_nft_tokens(where: { metadata_id: { _eq: $id } }) {
+      media
+      title
+      metadata_id
+      nft_contract_id
       token_id
-    }
-    listings_aggregate {
-      aggregate {
-        count
+      listings {
+        price
+        token_id
       }
+      listings_aggregate {
+        aggregate {
+          count
+        }
+      }
+      animationUrl: reference_blob(path: "$.animation_url")
     }
   }
-} 
-`;
+`
 
 export const v2MarketPlaceGetTokenListings = gql`
   query v2MarketPlaceGetTokenListings($ids: [String!]) {
@@ -33,7 +39,7 @@ export const v2MarketPlaceGetTokenListings = gql`
       }
     }
   }
-`;
+`
 
 export const v2MarketPlaceGetMetadata = gql`
   query v2MarketPlaceGetMetadata(
@@ -46,7 +52,7 @@ export const v2MarketPlaceGetMetadata = gql`
     ${LISTINGS_FRAGMENT}
     ${SIMPLE_SALE_COUNT_FRAGMENT}
     }
-`;
+`
 
 export const v2MarketPlaceGetStoreData = gql`
   query v2MarketPlaceGetStoreData($id: [String!]) @cached {
@@ -55,7 +61,7 @@ export const v2MarketPlaceGetStoreData = gql`
       name
     }
   }
-`;
+`
 
 export const v2MarketPlaceGetStoreNfts = gql`
   query v2MarketPlaceGetStoreNfts(
@@ -82,4 +88,4 @@ export const v2MarketPlaceGetStoreNfts = gql`
       }
     }
   }
-`;
+`

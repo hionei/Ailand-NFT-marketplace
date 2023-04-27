@@ -1,7 +1,9 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Dispatch, Fragment, SetStateAction, useEffect, useState } from 'react'
-import { StoreNfts } from '../../types/types'
+import { StoreNfts, TokenListData } from '../../types/types'
+import { useSelector } from 'react-redux'
 import Store from '../Store'
+import { RootState } from '../../store'
 export default ({
   open,
   setProductModalOpen,
@@ -14,7 +16,6 @@ export default ({
   let [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    console.log(itemData)
     setIsOpen(open)
   }, [open])
 
