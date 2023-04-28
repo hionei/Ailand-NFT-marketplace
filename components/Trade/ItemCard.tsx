@@ -58,7 +58,7 @@ function ItemCard({
 
   return (
     <div
-      className="max-w-[200px] overflow-hidden  flex items-center flex-col font-roboto rounded-[10px] w-[154px] min-h-[168px]"
+      className="max-w-[200px] overflow-hidden  flex items-center flex-col font-roboto rounded-[10px] w-[110px] sm:w-[154px] min-h-[168px]"
       style={{
         background: 'linear-gradient(180deg, #231941 0%, #181330 100%)',
         boxShadow: '0px 4px 5px rgba(0, 0, 0, 0.5)',
