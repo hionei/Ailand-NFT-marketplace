@@ -70,7 +70,7 @@ const index = ({ itemData }: { itemData: StoreNfts }) => {
         </div>
 
         <div className="mt-5">
-          <p className="text-violet mb-4">More from this contract</p>
+          <p className="text-violet mb-4 pl-5">More from this contract</p>
           <Carousel />
         </div>
       </div>
