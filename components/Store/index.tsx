@@ -36,7 +36,7 @@ const index = ({ itemData }: { itemData: StoreNfts }) => {
     <div className="bg-[#181330] min-h-screen">
       <div className="max-w-[1100px] mx-auto p-4">
         <div className=" grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="rounded-3xl  col-span-1 flex justify-center">
+          <div className="rounded-3xl  col-span-1 flex justify-center h-[480px]">
             {metaData?.tokenData.tokenData[0].animationUrl ? (
               <ModelViewer
                 modelPath={metaData?.tokenData.tokenData[0].animationUrl}
