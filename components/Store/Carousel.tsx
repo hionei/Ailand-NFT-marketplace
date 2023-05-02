@@ -34,7 +34,11 @@ const index = () => {
   return (
     <Carousel responsive={responsive} ssr={true} itemClass="p-2">
       {filteredThings.map((nft: StoreNfts) => (
-        <ItemCard key={'carousel' + nft.metadataId} item={nft} />
+        <ItemCard
+          key={'carousel' + nft.metadataId}
+          item={nft}
+          onItemClicked={itemClicked}
+        />
       ))}
     </Carousel>
   )

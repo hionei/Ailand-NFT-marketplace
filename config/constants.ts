@@ -6,7 +6,7 @@ export const MED_GAS = '400000000000000'
 export const DEFAULT_STORES =
   'membership.mintspace2.testnet,ticket.mintspace2.testnet,coffeeshop.mintspace2.testnet,metro.mintspace2.testnet'
 export const DEFAULT_MARKET_ADDRESS = 'market.mintspace2.testnet'
-export const DEFAULT_NETWORK = Network.testnet
+export const DEFAULT_NETWORK = Network.mainnet
 
 export const TESTNET_CONFIG = {
   networkId: 'testnet',
@@ -30,11 +30,18 @@ export const MAINNET_CONFIG = {
   walletUrl: 'https://wallet.mainnet.near.org',
   helperUrl: 'https://helper.mainnet.near.org',
   explorerUrl: 'https://explorer.mainnet.near.org',
+  stores:
+    'affiliatedirect.mintbase1.near,ff.nekotoken.near,mrbrownproject.near,misfits.tenk.near,x.paras.near',
   market: 'simple.market.mintbase1.near',
-  referral: 'nate.near',
+  // Change this referral address below to your account to test it out on purchase from other stores you add and see market fees go right to you.
+  affiliate: 'buildz.near',
   headers: {
     'Content-Type': 'application/json',
   },
+  callbackUrl:
+    typeof window !== 'undefined'
+      ? `http://${window?.location.host}/wallet-callback`
+      : 'https://www.mintbase.xyz/success',
 }
 
 export const WalletKeys = {

@@ -1035,12 +1035,12 @@
     nanoid "3.3.4"
     query-string "^7.1.1"
 
-"@mintbase-js/auth@^0.1.0-beta.25", "@mintbase-js/auth@^0.1.0-beta.9":
-  version "0.1.0-v0.1.0-beta.9-506e2e1.0"
-  resolved "https://registry.yarnpkg.com/@mintbase-js/auth/-/auth-0.1.0-v0.1.0-beta.9-506e2e1.0.tgz#cd65fe412b4e86d9eb96d5c101922dff1b2d88e4"
-  integrity sha512-l4ptELjr8K84MVk3qVxm8090NstGS8s+ndbeqyRD0U7zB0vTUKpvi3JHalnH8UqqIFx7jEK34C0joTIw5eS3LQ==
+"@mintbase-js/auth@^0.3.2-beta.12", "@mintbase-js/auth@^0.3.2-zero-balance-test-poc-cd787c2.0":
+  version "0.3.2-zero-balance-test-poc-cd787c2.0"
+  resolved "https://registry.yarnpkg.com/@mintbase-js/auth/-/auth-0.3.2-zero-balance-test-poc-cd787c2.0.tgz#4f7997b8e8a0e8b6d3424a56ef172022d400a484"
+  integrity sha512-hO+Y2kgiUJpNqgxf+CNDJl79KHF8f3RzBOo4yEUKoCQllFQuGFAf/jReRcdU6t3xpgMM0HREBykqbpYEgpguzw==
   dependencies:
-    "@mintbase-js/sdk" "^0.1.0-v0.1.0-beta.9-506e2e1.0"
+    "@mintbase-js/sdk" "^0.3.2-zero-balance-test-poc-cd787c2.0"
     "@near-wallet-selector/coin98-wallet" "^7.2.0"
     "@near-wallet-selector/core" "^7.1.0"
     "@near-wallet-selector/default-wallets" "^7.2.0"
@@ -1061,37 +1061,30 @@
     "@near-wallet-selector/welldone-wallet" "^7.2.0"
     rxjs "^7.5.7"
 
-"@mintbase-js/data@^0.1.0-v0.2.0-beta.0-d401c0c.0":
-  version "0.1.0-v0.2.0-beta.0-d401c0c.0"
-  resolved "https://registry.yarnpkg.com/@mintbase-js/data/-/data-0.1.0-v0.2.0-beta.0-d401c0c.0.tgz#4ed8421e89f4ce41af55b1ed76cff7514a1f5931"
-  integrity sha512-ocJxZofwmt19tfAnEGSD94eAbsyhVaV2frxVdhzyMYQkDADDxed+DEIT7ZeZnzk95k7ueXgTp6dDCXEpCppmKg==
+"@mintbase-js/data@^0.3.2-zero-balance-test-poc-cd787c2.0":
+  version "0.3.2-zero-balance-test-poc-cd787c2.0"
+  resolved "https://registry.yarnpkg.com/@mintbase-js/data/-/data-0.3.2-zero-balance-test-poc-cd787c2.0.tgz#d4e37d1b676449875783c09dd121ca9b5b0f5dc9"
+  integrity sha512-J2UaQBgyfJhCAs4q0iugmqfQU66VHV/1Bea9KX1D+ZUTEv9a/5Ji+euWko8TNJroB9WNf12YPsm+xxu1o2YvCA==
   dependencies:
     graphql-request "^5.0.0"
+    isomorphic-fetch "^3.0.0"
 
-"@mintbase-js/react@^0.1.0-beta.9":
-  version "0.1.0-v0.2.0-beta.0-d401c0c.0"
-  resolved "https://registry.yarnpkg.com/@mintbase-js/react/-/react-0.1.0-v0.2.0-beta.0-d401c0c.0.tgz#32a798264c933e4ac772793d5c9687e4f0e5c617"
-  integrity sha512-++uTGeJCMIXEyO7RToKL62nADjcOYuD6srwq5REKIt42tbNKVjG/UaHgtbQhtfw6ImOICcCTWEvyuoJVJAUOQA==
+"@mintbase-js/react@^0.3.2-beta.12":
+  version "0.3.2-zero-balance-test-poc-cd787c2.0"
+  resolved "https://registry.yarnpkg.com/@mintbase-js/react/-/react-0.3.2-zero-balance-test-poc-cd787c2.0.tgz#9823bebce049dff37d396358c63f3209c4f6021d"
+  integrity sha512-g2M/rGbWiu1hz98l3qpC1pFKiEqnWZADz00fxYaNWoSEjK3gtDi9u8nLFLXO2V7VtprHpn7cQNWmu6niU1eyGA==
   dependencies:
-    "@mintbase-js/auth" "^0.1.0-beta.25"
-    "@mintbase-js/data" "^0.1.0-v0.2.0-beta.0-d401c0c.0"
-    "@mintbase-js/sdk" "^0.1.0-beta.25"
+    "@mintbase-js/auth" "^0.3.2-zero-balance-test-poc-cd787c2.0"
+    "@mintbase-js/data" "^0.3.2-zero-balance-test-poc-cd787c2.0"
+    "@mintbase-js/sdk" "^0.3.2-zero-balance-test-poc-cd787c2.0"
     "@near-wallet-selector/core" "^7.0.3"
     "@near-wallet-selector/modal-ui" "^7.0.3"
     near-api-js "^0.44.2"
 
-"@mintbase-js/sdk@^0.1.0-beta.25", "@mintbase-js/sdk@^0.1.0-v0.1.0-beta.9-506e2e1.0":
-  version "0.1.0-v0.1.0-beta.9-506e2e1.0"
-  resolved "https://registry.yarnpkg.com/@mintbase-js/sdk/-/sdk-0.1.0-v0.1.0-beta.9-506e2e1.0.tgz#b03593b1b0e0e6356be8ad999e8aeab2573942b2"
-  integrity sha512-Y5rjXQvt2Az6qWyrfI3K3Me+9yi+pxFtM6HdhEGVnV18AmzyKYuFOuRIquYH24E4W/RVJs1J7AgklBd5MD4YgA==
-  dependencies:
-    bn.js "5.2.1"
-    near-api-js "^0.44.2"
-
-"@mintbase-js/sdk@^0.3.2-beta.0":
-  version "0.3.2-beta.0"
-  resolved "https://registry.yarnpkg.com/@mintbase-js/sdk/-/sdk-0.3.2-beta.0.tgz#e8339c382ba80bec9d1141f0c5343a207d005a78"
-  integrity sha512-0QShgvFNG06TbCv1EDCY68NvcSr5aEBRt7RmPoq+YQoHm6VjSuVsWpZna5REF0klLtQM/kziI+8SLqOBYtmy4Q==
+"@mintbase-js/sdk@^0.3.2-beta.12", "@mintbase-js/sdk@^0.3.2-zero-balance-test-poc-cd787c2.0":
+  version "0.3.2-zero-balance-test-poc-cd787c2.0"
+  resolved "https://registry.yarnpkg.com/@mintbase-js/sdk/-/sdk-0.3.2-zero-balance-test-poc-cd787c2.0.tgz#73ea8dbe778fa99a85a6f90ce99e81bf61415af1"
+  integrity sha512-8FIaDy030+Mr5eiKiCZJQ45jRvF0Ur4y4h6V1YSixsPDwwFZtlSP0fTqROLZyPeKcVh4s7WUj/4HlToucwuIbw==
   dependencies:
     bn.js "5.2.1"
     near-api-js "^0.44.2"
@@ -4524,6 +4517,14 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
+isomorphic-fetch@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz#0267b005049046d2421207215d45d6a262b8b8b4"
+  integrity sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==
+  dependencies:
+    node-fetch "^2.6.1"
+    whatwg-fetch "^3.4.1"
+
 isomorphic-localstorage@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/isomorphic-localstorage/-/isomorphic-localstorage-0.0.8.tgz#2479e6e600ef27cce90ed11c14e309c97a605d93"
@@ -6757,6 +6758,11 @@ whatwg-fetch@2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
   integrity sha512-dcQ1GWpOD/eEQ97k66aiEVpNnapVj90/+R+SXTPYGHpYBBypfKJEQjLrvMZ7YXbKm21gXd4NcuxUTjiv1YtLng==
+
+whatwg-fetch@^3.4.1:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.6.2.tgz#dced24f37f2624ed0281725d51d0e2e3fe677f8c"
+  integrity sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==
 
 whatwg-url@^5.0.0:
   version "5.0.0"
