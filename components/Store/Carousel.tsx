@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import ItemCard from '../Trade/ItemCard'
@@ -30,6 +30,11 @@ const index = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   }
+
+  const itemClicked = useCallback((item: StoreNfts) => {
+    // setProductModalOpen(true)
+    // setItemData(item)
+  }, [])
 
   return (
     <Carousel responsive={responsive} ssr={true} itemClass="p-2">

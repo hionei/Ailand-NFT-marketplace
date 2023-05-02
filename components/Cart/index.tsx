@@ -72,7 +72,7 @@ const Cart = (props: any) => {
           tokenId: param.tokenId,
           affiliateAccount:
             process.env.NEXT_PUBLIC_AFFILIATE_ACCOUNT ||
-            MAINNET_CONFIG.referral,
+            MAINNET_CONFIG.affiliate,
           marketId: param.marketId,
           price: nearToYocto((Number(param.price) + 0.000001).toString()),
         })
