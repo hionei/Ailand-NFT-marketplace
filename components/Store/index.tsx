@@ -5,6 +5,7 @@ import About from './DetailCards/About'
 import Date from './DetailCards/Date'
 import Provenance from './DetailCards/Provenance'
 import Splits from './DetailCards/Splits'
+import { useNearPrice } from '../../hooks/useNearPrice'
 import Carousel from './Carousel'
 import { StoreNfts, TokenListData } from '../../types/types'
 import ModelViewer from '../ModelViewer'
@@ -15,6 +16,8 @@ const index = ({ itemData }: { itemData: StoreNfts }) => {
   const metaDataList = useSelector(
     (state: RootState) => state.metaDataSlicer.metaDataList
   )
+
+  const { nearPrice } = useNearPrice()
 
   const [metaData, setMetaData] = useState<TokenListData>()
 
@@ -27,7 +30,6 @@ const index = ({ itemData }: { itemData: StoreNfts }) => {
         )
       })
 
-      console.log(metaDataPackage[0].tokenData.tokenData[0].animationUrl)
       setMetaData(metaDataPackage[0])
     }
   }, [])
@@ -50,7 +52,10 @@ const index = ({ itemData }: { itemData: StoreNfts }) => {
             )}
           </div>
           <div className="col-span-2">
-            <Header />
+            <Header
+              price={Number(parseFloat(nearPrice) * metaData?.price).toFixed(2)}
+              nftData={itemData}
+            />
             {/* accordion */}
             <div className="flex flex-col gap-4 p-4">
               <Accordion title="About">

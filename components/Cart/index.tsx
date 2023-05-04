@@ -53,7 +53,7 @@ const Cart = (props: any) => {
 
   const multipleBuy = async (params: BuyArgs[]) => {
     const wallet = await selector.wallet()
-    console.log(params)
+
     await execute(
       {
         wallet,
