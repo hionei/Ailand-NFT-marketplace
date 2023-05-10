@@ -64,29 +64,33 @@ function ItemCard({
         boxShadow: '0px 4px 5px rgba(0, 0, 0, 0.5)',
       }}
     >
-      <img
-        src={item.media}
-        alt=""
-        className="w-full h-[103px]"
-        onClick={itemClicked}
-      />
-      <p className="text-md font-roboto text-white">
-        $ {Number(parseFloat(nearPrice) * curMetaData.price).toFixed(2)}
-      </p>
-      <div className="flex gap-2 p-2">
-        <button
-          type="button"
-          className="bg-[#231841] px-4 py-1 rounded-lg border-none flex items-center justify-center cursor-pointer"
-        >
-          <img src="/icons/heart.svg" alt="" />
-        </button>
-        <button
-          type="button"
-          onClick={saveToCart}
-          className="bg-[#231841] px-4 py-1 rounded-lg border-none cursor-pointer"
-        >
-          <img src="/icons/cart.svg" alt="" />
-        </button>
+      <div className="w-full h-[103px] overflow-hidden">
+        <img
+          className="rounded-t-none object-cover"
+          src={item.media}
+          alt=""
+          onClick={itemClicked}
+        />
+      </div>
+      <div className="bg-[#181330] w-full text-center">
+        <p className="text-md font-roboto text-white">
+          $ {Number(parseFloat(nearPrice) * curMetaData.price).toFixed(2)}
+        </p>
+        <div className="flex gap-2 p-2 justify-center">
+          <button
+            type="button"
+            className="bg-[#231841] px-4 py-1 rounded-lg border-none flex items-center justify-center cursor-pointer"
+          >
+            <img src="/icons/heart.svg" alt="" />
+          </button>
+          <button
+            type="button"
+            onClick={saveToCart}
+            className="bg-[#231841] px-4 py-1 rounded-lg border-none cursor-pointer"
+          >
+            <img src="/icons/cart.svg" alt="" />
+          </button>
+        </div>
       </div>
     </div>
   )
